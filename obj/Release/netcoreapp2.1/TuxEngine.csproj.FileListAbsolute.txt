@@ -1,4 +1,0 @@
-C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\TuxEngine.csprojAssemblyReference.cache
-C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\TuxEngine.csproj.CoreCompileInputs.cache
-C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\TuxEngine.AssemblyInfoInputs.cache
-C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\TuxEngine.AssemblyInfo.cs
