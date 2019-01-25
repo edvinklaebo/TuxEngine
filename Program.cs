@@ -1,5 +1,4 @@
 using OpenGL;
-using OpenGL.CoreUI;
 
 using System;
 using System.Text;
@@ -35,80 +34,7 @@ namespace TuxEngine
 
 
 
-        public static void Main()
-        {
-            using (NativeWindow nativeWindow = NativeWindow.Create())
-            {
-                nativeWindow.ContextCreated += NativeWindow_ContextCreated;
-                nativeWindow.Render += NativeWindow_Render;
-                nativeWindow.KeyDown += (obj, e) =>
-                {
-                    switch (e.Key)
-                    {
-                        case KeyCode.Escape:
-                            nativeWindow.Stop();
-                            break;
-
-                        case KeyCode.F:
-                            nativeWindow.Fullscreen = !nativeWindow.Fullscreen;
-                            break;
-                    }
-                };
-                nativeWindow.Animation = true;
-
-                nativeWindow.Create(0, 0, 800, 600, NativeWindowStyle.Resizeable);
-
-                nativeWindow.Show();
-                nativeWindow.Run();
-            }
-        }
-
         #region Event Handling
-
-        private static void NativeWindow_ContextCreated(object sender, NativeWindowEventArgs e)
-        {
-            NativeWindow nativeWindow = (NativeWindow)sender;
-
-            var vao = new uint[1];
-            Gl.GenVertexArrays(vao);
-            Gl.BindVertexArray(vao[0]);
-
-            uint[] vbo = new uint[1];
-            Gl.GenBuffers(vbo);
-            Gl.BindBuffer(BufferTarget.ArrayBuffer, vbo[0]);
-            Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(sizeof(float) * vertices.Length), vertices, BufferUsage.StaticDraw);
-
-            var vertexShader = Gl.CreateShader(ShaderType.VertexShader);
-            Gl.ShaderSource(vertexShader, Program.vertexShader);
-            Gl.CompileShader(vertexShader);
-
-            var fragmentShader = Gl.CreateShader(ShaderType.FragmentShader);
-            Gl.ShaderSource(fragmentShader, Program.fragmentShader);
-            Gl.CompileShader(fragmentShader);
-
-            var program = Gl.CreateProgram();
-            Gl.AttachShader(program, vertexShader);
-            Gl.AttachShader(program, fragmentShader);
-            Gl.BindFragDataLocation(program, 0, "outColor");
-            Gl.LinkProgram(program);
-            Gl.UseProgram(program);
-
-            var pos = Gl.GetAttribLocation(program, "position");
-            Gl.VertexAttribPointer((uint)pos, 2, VertexAttribType.Float, false, 0, IntPtr.Zero);
-            Gl.EnableVertexAttribArray((uint)pos);
-
-
-        }
-
-        private static void NativeWindow_Render(object sender, NativeWindowEventArgs e)
-        {
-            NativeWindow nativeWindow = (NativeWindow)sender;
-
-            Gl.Viewport(0, 0, (int)nativeWindow.Width, (int)nativeWindow.Height);
-            Gl.Clear(ClearBufferMask.ColorBufferBit);
-            Gl.ClearColor(0.2F, 0.2F, 0.2F, 1.0F);
-            Gl.DrawArrays(PrimitiveType.Triangles, 0, 3);
-        }
 
         #endregion
 
@@ -129,23 +55,20 @@ namespace TuxEngine
             uint vertexShader = Gl.CreateShader(ShaderType.VertexShader);
             Gl.ShaderSource(vertexShader, source);
             Gl.CompileShader(vertexShader);
-            int compiled;
 
-            Gl.GetShader(vertexShader, ShaderParameterName.CompileStatus, out compiled);
+            Gl.GetShader(vertexShader, ShaderParameterName.CompileStatus, out var compiled);
             if (compiled != 0)
                 return vertexShader;
 
-            // Not compiled!
             Gl.DeleteShader(vertexShader);
 
             const int logMaxLength = 1024;
 
-            StringBuilder infolog = new StringBuilder(logMaxLength);
-            int infologLength;
+            var infoLog = new StringBuilder(logMaxLength);
 
-            Gl.GetShaderInfoLog(vertexShader, logMaxLength, out infologLength, infolog);
+            Gl.GetShaderInfoLog(vertexShader, logMaxLength, out _, infoLog);
 
-            throw new InvalidOperationException($"unable to compile shader: {infolog}");
+            throw new InvalidOperationException($"unable to compile shader: {infoLog}");
         }
 
     }

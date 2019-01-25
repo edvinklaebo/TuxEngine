@@ -6,19 +6,6 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="glfw.dll" />
-    <None Remove="libglfw.dylib" />
-    <None Remove="libglfw.so" />
-    <None Remove="output.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="output.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
   <PropertyGroup>
     <DefineConstants Condition="'$(RuntimeIdentifier)' == 'win-x64'">$(DefineConstants);WINDOWS</DefineConstants>
   </PropertyGroup>
@@ -28,19 +15,6 @@
   <PropertyGroup>
     <DefineConstants Condition="'$(RuntimeIdentifier)' == 'win-x64'">$(DefineConstants);WINDOWS</DefineConstants>
   </PropertyGroup>
-
-
-  <ItemGroup>
-    <Content Include="glfw.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libglfw.dylib">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libglfw.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
 
   <ItemGroup>
