@@ -3,24 +3,24 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <PropertyGroup>
     <DefineConstants Condition="'$(RuntimeIdentifier)' == 'win-x64'">$(DefineConstants);WINDOWS</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
-    <DefineConstants Condition="'$(RuntimeIdentifier)' == 'win-x64'">$(DefineConstants);WINDOWS</DefineConstants>
+    <DefineConstants Condition="'$(RuntimeIdentifier)' == 'linux-x64'">$(DefineConstants);LINUX</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
-    <DefineConstants Condition="'$(RuntimeIdentifier)' == 'win-x64'">$(DefineConstants);WINDOWS</DefineConstants>
+    <DefineConstants Condition="'$(RuntimeIdentifier)' == 'osx-x64'">$(DefineConstants);OSX</DefineConstants>
   </PropertyGroup>
+
   <ItemGroup>
     <None Include="TuxEngine.linux.csproj" />
     <None Include="TuxEngine.osx.csproj" />
     <None Include="TuxEngine.windows.csproj" />
   </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="OpenGL.Net" Version="0.7.1" />
@@ -29,3 +29,4 @@
   </ItemGroup>
 
 </Project>
+
