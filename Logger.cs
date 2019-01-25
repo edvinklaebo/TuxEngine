@@ -13,7 +13,7 @@ using System.IO;
 
 namespace TuxEngine
 {
-    public class LoggerEvent
+    public class Logger
     {
         public delegate void LogHandler(string message);
 

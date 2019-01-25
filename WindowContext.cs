@@ -119,25 +119,17 @@ namespace TuxEngine
 
         public static void FullscreenWindow(NativeWindowKeyEventArgs e)
         {
-            switch (e.Key)
-            {
-                case KeyCode.F:
-                    NativeWindow.Fullscreen = !NativeWindow.Fullscreen;
-                    break;
-                case KeyCode.Return:
-                    NativeWindow.Fullscreen = !NativeWindow.Fullscreen;
-                    break;
-            }        }
+            if (e.Key == KeyCode.F)
+                NativeWindow.Fullscreen = !NativeWindow.Fullscreen;
+            else if (e.Key == KeyCode.Return)
+                NativeWindow.Fullscreen = !NativeWindow.Fullscreen;
+        }
 
 
         public static void Close(NativeWindowKeyEventArgs e)
         {
-            switch (e.Key)
-            {
-                case KeyCode.Escape:
-                    NativeWindow.Stop();
-                    break;
-            }
+            if (e.Key == KeyCode.Escape)
+                NativeWindow.Stop();
         }
     }
 }
