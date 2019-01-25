@@ -10,7 +10,6 @@ C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\bin\Release\netcoreapp2.1\win-x6
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\bin\Release\netcoreapp2.1\win-x64\TuxEngine.runtimeconfig.dev.json
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\bin\Release\netcoreapp2.1\win-x64\TuxEngine.dll
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\bin\Release\netcoreapp2.1\win-x64\TuxEngine.pdb
-C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\win-x64\TuxEngine.csprojAssemblyReference.cache
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\win-x64\TuxEngine.csproj.CoreCompileInputs.cache
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\win-x64\TuxEngine.AssemblyInfoInputs.cache
 C:\Users\Edvin\source\repos\TuxEngine\TuxEngine\obj\Release\netcoreapp2.1\win-x64\TuxEngine.AssemblyInfo.cs
